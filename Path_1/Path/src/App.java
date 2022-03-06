@@ -1,36 +1,20 @@
 
 class Person {
-    // This is class but we use like a structure.
+    // This is Person Class.
     private String name;
     private String surname;
     private byte old;
+    
+    public String toString()
+    {
+        return name + "  " + surname + "  " + old;
+    }
 
-    public void setName(String name)
+    public Person(String name, String surname, byte old)
     {
         this.name = name;
-    }
-
-    public void SetSurname(String surname)
-    {
         this.surname = surname;
-    }
-
-    public void setOld(Byte old)
-    {
         this.old = old;
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-    public String getSurname()
-    {
-        return surname;
-    }
-    public Byte getOld()
-    {
-        return old;
     }
 
 
@@ -40,12 +24,9 @@ class Person {
 public class App {
     public static void main(String[] args) throws Exception {
         // initial the Person class
-        Person newPerson = new Person();
-        newPerson.setName("Abdullah");
-        newPerson.SetSurname("Vural");
-        newPerson.setOld((byte) 20);
-
-        System.out.println(newPerson.getName() + "  " + newPerson.getSurname() + "   " + newPerson.getOld());
+        Person newPerson = new Person("Abdullah", "Vural",(byte) 20);
+        
+        System.out.println(newPerson);
 
 
     }
