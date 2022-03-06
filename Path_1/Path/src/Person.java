@@ -1,34 +1,41 @@
+import java.time.LocalDate;
+
 public class Person{
     private String name;
     private String surname;
-    private Byte old;
+    private Short born;
     private String school;
 
-    public Person(String name, String surname, Byte old)
+    public Person(String name, String surname, Short born)
     {
         this.name = name;
         this.surname = surname;
-        this.old = old;
-        school = "Not Valid";
+        this.born = born;
+        school = "Invalid";
     }
 
-    public Person(String name, String surname, Byte old, String school)
+    public Person(String name, String surname, Short born, String school)
     {
         this.name = name;
         this.surname = surname;
-        this.old = old;
+        this.born = born;
         this.school = school;
+    }
+
+    private byte CalculateAge()
+    {
+        return (byte)(LocalDate.now().getYear() - born);
     }
 
     public String toString()
     {
-        if(school.equals("Not Valid"))
+        if(school.equals("Invalid"))
         {
-            return name + "  "  + surname + "  " + old;
+            return name + "  "  + surname + "  " + CalculateAge();
         }
         else
         {
-            return name + "  " + surname + "  " + old + "  " + school; 
+            return name + "  " + surname + "  " + CalculateAge()+ "  " + school; 
         }
     }
 }
