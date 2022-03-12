@@ -7,10 +7,10 @@ public class App {
         for (Boolean oparation : oparatorArray) {
             if(oparation)
             {
-                System.out.println("Added elememan : " + queue.add(array[nextEleman++]));
+                System.out.println("Added element : " + queue.add(array[nextEleman++]));
             }
             else {
-                System.out.println("Added elememan : " + queue.remove());
+                System.out.println("Remove element: " + queue.remove());
             }
             System.out.println(queue.listOfArray());
         }
