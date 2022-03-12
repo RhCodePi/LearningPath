@@ -1,28 +1,32 @@
+import java.util.*;
+
 class Queue{
     private int elementCount = 0;
     private int pointer = 0;
-    private int[] queue;
+    private List<Integer> queue;
 
     public Queue(int elementCount)
     {
         this.elementCount = elementCount;
-        queue = new int[elementCount];
+        queue = new ArrayList<>();
     }
 
     int add(int addOfElement)
     {
-        queue[pointer] = addOfElement;
-        pointer++;
+        if(pointer++ == elementCount)
+        {
+            return -1;
+        }
+        queue.add(addOfElement);
         return addOfElement; 
     }
 
     int remove()
     {
-        int value = queue[0];
-        for(int i = 1; i<pointer; i++)
-        {
-            queue[i-1] =queue[i];
-        }
+       if(pointer == 0)
+            return -1;
+        int value = queue.get(0);
+        queue.remove(0);
         pointer--;
         return value;
     }
@@ -32,7 +36,7 @@ class Queue{
         String outOfList = "";
         for(int i = 0; i<pointer; i++)
         {
-            outOfList += queue[i] + "<-";
+            outOfList += queue.get(i) + "<-";
         }
         return outOfList;
     }
